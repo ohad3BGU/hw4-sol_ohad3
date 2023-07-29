@@ -17,3 +17,5 @@ To test;
 ```
 npm run cypress
 ```
+
+p.s, CSRF secret is just a dummy one, in real-life we should use other ways to hide it but as this is lab env', that will do the job.

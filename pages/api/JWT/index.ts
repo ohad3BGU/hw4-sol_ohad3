@@ -11,7 +11,7 @@ export default function handle(req: NextApiRequest, res: NextApiResponse) {
     const experationTime = experationDate.getTime();
     const payload = { username, userId, email, experationTime };
     const token = jwt.sign(payload, secretKey);
-    res.setHeader('Set-Cookie', `jwt=${token}; Path=/; HttpOnly`);
+    res.setHeader('Set-Cookie', `jwt=${token}; Path=/; SameSite=Strict; HttpOnly`);
     res.status(200).end();
   } 
   

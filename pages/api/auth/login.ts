@@ -48,7 +48,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
         return;
       }
   
-    res.setHeader('Set-Cookie', `${response.headers.get('Set-Cookie')}; Path=/; HttpOnly`);
+    res.setHeader('Set-Cookie', `${response.headers.get('Set-Cookie')}; Path=/; SameSite=Strict; HttpOnly`);
     res.status(200).json({ message: 'Login successful' });
   } catch (error) {
     console.error('Login error:', error);

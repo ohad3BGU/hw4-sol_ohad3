@@ -41,7 +41,7 @@ describe('JWT test', () => {
     it('should return a 200 status code and set the JWT token in the cookie header', () => {
       handle(req, res);
 
-      expect(res.setHeader).toHaveBeenCalledWith('Set-Cookie', 'jwt=mocked-token; Path=/; HttpOnly');
+      expect(res.setHeader).toHaveBeenCalledWith('Set-Cookie', 'jwt=mocked-token; Path=/; SameSite=Strict; HttpOnly');
       expect(res.status).toHaveBeenCalledWith(200);
       expect(res.end).toHaveBeenCalled();
     });

@@ -6,7 +6,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
     return;
   }
   try{  //just clearing the cookie to signout
-    res.setHeader('Set-Cookie', `jwt=''; Path=/; HttpOnly`);
+    res.setHeader('Set-Cookie', `jwt=''; Path=/; SameSite=Strict; HttpOnly`);
     res.status(200).json({ message : 'successfully logged out' });
     return;
     }

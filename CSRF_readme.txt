@@ -1,3 +1,17 @@
+Fixed version == after implementing CSRF protection with NEXT-CSRF (https://github.com/j0lv3r4/next-csrf) which was described in the provided blogpost.
+
+
+Fixed version example:
+curl -X $'POST' \
+    -H $'Host: localhost:3000' -H $'Content-Length: 51' -H $'Content-Type: application/json' \
+    -b $'jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InIiLCJ1c2VySWQiOjQsImVtYWlsIjoickByLnIiLCJleHBlcmF0aW9uVGltZSI6MTY5MzIyODk5NDE0OCwiaWF0IjoxNjkwNjM2OTk0fQ.gjYPoUf-FMkbWXOnL-N1uwY300cSkQKn-3TLuMmzkCo' \
+    --data-binary $'{\"title\":\"hello\",\"content\":\"hello\",\"email\":\"r@r.r\"}' \
+    $'http://localhost:3000/api/post'
+
+Server response:
+{"message":"Invalid CSRF token"}
+
+
 vulnerable example:
 
 Writing draft to user owned this cookie.

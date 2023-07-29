@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '../components/Layout';
+import { setup } from '../lib/csrf';
 
 const LogIn: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -127,5 +128,9 @@ const LogIn: React.FC = () => {
     </Layout>
   );
 };
+
+export const getServerSideProps = setup(async ({req, res}) => {
+  return { props: {}}
+});
 
 export default LogIn;
